@@ -22,10 +22,11 @@ model Event {
 }
 
 model Attendee {
-  id      Int    @id @default(autoincrement())
-  name    String
-  email   String
-  eventId String
+  id        Int      @id @default(autoincrement())
+  name      String
+  email     String
+  eventId   String
+  createdAt DateTime @default(now())
 
   event   Event    @relation(fields: [eventId], references: [id])
   CheckIn CheckIn?
